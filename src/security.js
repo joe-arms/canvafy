@@ -297,7 +297,7 @@ module.exports = class Security {
       const ctxz = canvasz.getContext('2d');
       ctxz.fillStyle = 'black';
       ctxz.fillRect(0, 0, 600, 235);
-      ctxz.drawImage(json, 0, 92, 600, 150);
+      ctxz.drawImage(await loadImage(json), 0, 92, 600, 150);
       return canvasz.toBuffer('image/png');
    }
 };
