@@ -25,7 +25,6 @@ module.exports = class Security {
       this.avatar = "https://cdn.discordapp.com/embed/avatars/0.png";
       this.userid;
       this.control;
-      this.kontrol;
       this.locale = "en";
       this.createdtime;
       this.suspecttime;
