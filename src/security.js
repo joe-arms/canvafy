@@ -26,7 +26,7 @@ module.exports = class Security {
       this.userid;
       this.control;
       this.locale = "en";
-      this.createdtime;
+      this.createdtime = 0;
       this.suspecttime;
       this.background = {
          type: "color",
@@ -87,12 +87,8 @@ module.exports = class Security {
     * @example setCreatedTimestamp(someoneUser.createdTimestamp)
     */
    setCreatedTimestamp(time) {
-      if(time) {
-         this.createdtime = time;
-         return this;
-      } else {
-         throw new Error("The setCreatedTimestamp parameter cannot be left blank, please enter a user createdtimestamp.");
-      }
+      this.createdtime = time;
+      return this;
    }
    /**
     * .setSuspectTimestamp
