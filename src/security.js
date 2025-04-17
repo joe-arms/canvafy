@@ -297,6 +297,13 @@ module.exports = class Security {
       const ctxz = canvasz.getContext('2d');
       ctxz.fillStyle = 'black';
       ctxz.fillRect(0, 0, 600, 600);
+      ctxz.font = `24px sans-serif`;
+      ctxz.fillStyle = 'white';
+      ctxz.textAlign = 'center';
+      const yTeksAtas = 92 - 24 - 10; // 10 adalah jarak antara teks dan gambar
+      ctxz.fillText("PROFILE", 600 / 2, yTeksAtas);
+      const yTeksBawah = 92 + 150 + 24 + 10; // 10 adalah jarak antara teks dan gambar
+      ctxz.fillText("KannaBOT", 600 / 2, yTeksBawah);
       ctxz.drawImage(await loadImage(json), 0, 92, 600, 150);
       return canvasz.toBuffer('image/png');
    }
