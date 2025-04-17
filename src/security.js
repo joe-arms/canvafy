@@ -2,14 +2,7 @@
 Object.defineProperty(exports, "__esModule", {
    value: true
 });
-const {
-   createCanvas,
-   loadImage,
-   GlobalFonts
-} = require('@napi-rs/canvas');
-const fetch = (...args) => import('node-fetch').then(({
-   default: fetch
-}) => fetch(...args));
+const { createCanvas, loadImage, GlobalFonts } = require('@napi-rs/canvas');
 /**
  * @typedef {object} Security
  * @see {Security}
@@ -299,6 +292,12 @@ module.exports = class Security {
       } catch {
          throw new Error("The image given in the argument of the setAvatar method is not valid or you are not connected to the internet.");
       }
-      return canvas.toBuffer('image/png');
+      const json = canvas.toBuffer('image/png');
+      const canvasz = createCanvas(600, 335);
+      const ctxz = canvasz.getContext('2d');
+      ctxz.fillStyle = 'black';
+      ctxz.fillRect(0, 0, 600, 235);
+      ctxz.drawImage(json, 0, 92, 600, 150);
+      return canvasz.toBuffer('image/png');
    }
 };
