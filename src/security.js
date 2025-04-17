@@ -179,18 +179,12 @@ module.exports = class Security {
          }
       }
    }
-   /**
-   * .setChecklist
-   */
-   setChecklist(type) {
-      this.kontrol = type;
-      return this;
-   }
    async build() {
       if(this.font.path) GlobalFonts.registerFromPath(this.font.path, this.font.name);
       const canvas = createCanvas(600, 150);
       const ctx = canvas.getContext("2d");
       var kontrol = false;
+      if(this.createdtime >= this.suspecttime)kontrol = true;
       if(this.border) {
          ctx.beginPath();
          ctx.lineWidth = 8;
@@ -248,8 +242,8 @@ module.exports = class Security {
       ctx.fill();
       ctx.closePath();
       let color;
-      if(this.kontrol == true) color = "#00ff00";
-      if(this.kontrol == false) color = "#fc9c25";
+      if(kontrol == true) color = "#00ff00";
+      if(kontrol == false) color = "#fc9c25";
       ctx.beginPath();
       ctx.globalAlpha = 1;
       ctx.lineWidth = 5;
@@ -261,7 +255,7 @@ module.exports = class Security {
       ctx.arc(465, 75, 30, 0, Math.PI * 2);
       ctx.stroke();
       ctx.closePath();
-      if(this.kontrol == true) {
+      if(kontrol == true) {
          ctx.font = `35px Abyss`;
          ctx.globalAlpha = 1;
          ctx.fillStyle = color;
