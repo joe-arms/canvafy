@@ -88,7 +88,6 @@ module.exports = class Security {
     */
    setCreatedTimestamp(time) {
       if(time) {
-         if(typeof time !== "number") throw new Error('You must add a parameter of Number type setCreatedTimestamp! Invalid createdtimestamp');
          this.createdtime = time;
          return this;
       } else {
@@ -273,11 +272,14 @@ module.exports = class Security {
          ctx.shadowOffsetX = 0;
          ctx.fillText(`!`, 457, 87);
       }
-      const createdDateString = new Date(this.createdtime).toLocaleDateString(this.locale, {
+      let createdDateString = new Date(this.createdtime).toLocaleDateString(this.locale, {
          month: 'long',
          day: 'numeric',
          year: 'numeric'
       });
+      if (createdDateString === 'January 1, 1970') {
+         createdDateString = 'Free User';
+       }
       ctx.font = `15px ${this.font.name} Bold`;
       ctx.globalAlpha = 1;
       ctx.fillStyle = this.avatar_border;
