@@ -300,6 +300,8 @@ module.exports = class Security {
 
       ctxz.font = `35px Abyss`;
       ctxz.textAlign = 'center';
+      ctxz.strokeStyle = 'black';
+      ctxz.lineWidth = 3;
       ctxz.globalAlpha = 1;
       ctxz.fillStyle = color;
       ctxz.shadowBlur = 9;
@@ -309,8 +311,10 @@ module.exports = class Security {
 
       const yTeksAtas = 92 - 24 - 10; // 10 adalah jarak antara teks dan gambar
       ctxz.fillText("PROFILE", 600 / 2, yTeksAtas);
+      ctxz.strokeText("PROFILE", 600 / 2, yTeksAtas);
       const yTeksBawah = 92 + 150 + 24 + 10; // 10 adalah jarak antara teks dan gambar
       ctxz.fillText("KannaBOT", 600 / 2, yTeksBawah);
+      ctxz.strokeText("KannaBOT", 600 / 2, yTeksBawah);
       ctxz.drawImage(await loadImage(json), 0, 92, 600, 150);
       return canvasz.toBuffer('image/png');
    }
