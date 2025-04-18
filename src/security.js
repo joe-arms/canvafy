@@ -298,7 +298,7 @@ module.exports = class Security {
       ctxz.fillStyle = 'black';
       ctxz.fillRect(0, 0, 0, 0);
 
-      ctxz.font = `35px Abyss`;
+      ctxz.font = `35px ${this.font.name} Bold`;
       ctxz.textAlign = 'center';
       ctxz.strokeStyle = 'black';
       ctxz.lineWidth = 3;
