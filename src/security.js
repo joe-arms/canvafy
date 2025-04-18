@@ -296,10 +296,17 @@ module.exports = class Security {
       const canvasz = createCanvas(600, 335);
       const ctxz = canvasz.getContext('2d');
       ctxz.fillStyle = 'black';
-      ctxz.fillRect(0, 0, 600, 600);
-      ctxz.font = `24px sans-serif`;
-      ctxz.fillStyle = 'white';
+      ctxz.fillRect(0, 0, 0, 0);
+
+      ctxz.font = `35px Abyss`;
       ctxz.textAlign = 'center';
+      ctxz.globalAlpha = 1;
+      ctxz.fillStyle = color;
+      ctxz.shadowBlur = 9;
+      ctxz.shadowColor = color;
+      ctxz.shadowOffsetY = 0;
+      ctxz.shadowOffsetX = 0;
+
       const yTeksAtas = 92 - 24 - 10; // 10 adalah jarak antara teks dan gambar
       ctxz.fillText("PROFILE", 600 / 2, yTeksAtas);
       const yTeksBawah = 92 + 150 + 24 + 10; // 10 adalah jarak antara teks dan gambar
